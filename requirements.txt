@@ -1,0 +1,6 @@
+streamlit
+langchain
+langchain-community
+pypdf
+python-docx
+docx2txt
