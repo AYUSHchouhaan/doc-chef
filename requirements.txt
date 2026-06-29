@@ -4,6 +4,7 @@ langchain-community
 langchain-openai
 langchain-text-splitters
 greenlet==3.2.4
+chromadb
 pypdf
 python-docx
 docx2txt

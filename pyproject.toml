@@ -9,6 +9,7 @@ dependencies = [
 	"greenlet==3.2.4",
 	"langchain",
 	"langchain-community",
+	"chromadb",
 	"langchain-openai",
 	"langchain-text-splitters",
 	"pypdf",
