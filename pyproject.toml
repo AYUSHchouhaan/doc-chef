@@ -16,4 +16,6 @@ dependencies = [
 	"python-docx",
 	"python-dotenv",
 	"streamlit",
+	"fastapi",
+	"uvicorn",
 ]
