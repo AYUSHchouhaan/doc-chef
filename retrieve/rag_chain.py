@@ -1,4 +1,5 @@
-from utils.llm import get_llm
+from retrieve.llm import get_llm
+
 
 def generate_response(query, retrieved_docs):
     llm = get_llm()

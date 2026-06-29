@@ -1,6 +1,6 @@
 from langchain_community.vectorstores import Chroma
 
-from utils.embeddings import get_embedding_model
+from ingest.embeddings import get_embedding_model
 
 
 def create_vector_store(chunks, metadatas=None, persist_directory="vector_store"):

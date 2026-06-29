@@ -1,14 +1,14 @@
 import streamlit as st 
 import os
 from dotenv import load_dotenv
-from loaders.docx_loader import load_docx
-from loaders.pdf_loader import load_pdf
-from loaders.txt_loader import load_txt
-from loaders.csv_loader import load_csv
-from utils.text_splitter import split_text
-from utils.vector_store import create_vector_store
-from utils.retriever import retrieve_chunks
-from utils.rag_chain import generate_response
+from ingest.loaders.docx_loader import load_docx
+from ingest.loaders.pdf_loader import load_pdf
+from ingest.loaders.txt_loader import load_txt
+from ingest.loaders.csv_loader import load_csv
+from ingest.text_splitter import split_text
+from ingest.vector_store import create_vector_store
+from retrieve.retriever import retrieve_chunks
+from retrieve.rag_chain import generate_response
 load_dotenv()
 st.title("DocuThinker")
 
