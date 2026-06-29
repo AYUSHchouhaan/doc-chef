@@ -12,7 +12,10 @@ from utils.rag_chain import generate_response
 load_dotenv()
 st.title("DocuThinker")
 
-st.write("upload your documents")
+st.write("Upload your documents")
+
+if not os.getenv("OPENAI_API_KEY"):
+    st.warning("Add OPENAI_API_KEY to a .env file before asking questions about documents.")
 
 uploaded_file = st.file_uploader("Choose your file", type=["pdf", "docx", "txt","csv"])
 
@@ -22,7 +25,8 @@ if uploaded_file is not None:
     st.write("filetype : ",uploaded_file.type)
     st.write("filesize : ",uploaded_file.size, "bytes")
     
-    file_path = os.path.join("data",uploaded_file.name)
+    os.makedirs("data", exist_ok=True)
+    file_path = os.path.join("data", uploaded_file.name)
     with open(file_path,"wb") as f:
         f.write(uploaded_file.getbuffer())
     st.success("File Saved Successfully")
@@ -37,7 +41,13 @@ if uploaded_file is not None:
         
         st.write("Total Chunks : ",len(chunks))
         st.subheader("First Chunk")
-        st.write(chunks[0])
+        if chunks:
+            st.write(chunks[0])
+        else:
+            st.warning("No text could be extracted from this document.")
+            st.stop()
+        if not os.getenv("OPENAI_API_KEY"):
+            st.stop()
         vector_store = create_vector_store(chunks)
         st.success("Vector Store Created Successfully")
         query = st.text_input("Ask a question about your document")
@@ -58,7 +68,13 @@ if uploaded_file is not None:
         chunks = split_text(text)
         st.write("Total Chunks : ",len(chunks))
         st.subheader("First Chunk")
-        st.write(chunks[0])
+        if chunks:
+            st.write(chunks[0])
+        else:
+            st.warning("No text could be extracted from this document.")
+            st.stop()
+        if not os.getenv("OPENAI_API_KEY"):
+            st.stop()
         vector_store = create_vector_store(chunks)
         st.success("Vector Store Created Successfully")
         query = st.text_input("Ask a question about your document")
@@ -79,7 +95,13 @@ if uploaded_file is not None:
         chunks = split_text(text)
         st.write("Total Chunks : ",len(chunks))
         st.subheader("First Chunk")
-        st.write(chunks[0])
+        if chunks:
+            st.write(chunks[0])
+        else:
+            st.warning("No text could be extracted from this document.")
+            st.stop()
+        if not os.getenv("OPENAI_API_KEY"):
+            st.stop()
         vector_store = create_vector_store(chunks)
         st.success("Vector Store Created Successfully")
         query = st.text_input("Ask a question about your document")
@@ -100,7 +122,13 @@ if uploaded_file is not None:
         chunks = split_text(text)
         st.write("Total Chunks : ",len(chunks))
         st.subheader("First Chunk")
-        st.write(chunks[0])
+        if chunks:
+            st.write(chunks[0])
+        else:
+            st.warning("No text could be extracted from this document.")
+            st.stop()
+        if not os.getenv("OPENAI_API_KEY"):
+            st.stop()
         vector_store = create_vector_store(chunks)
         st.success("Vector Store Created Successfully")
         query = st.text_input("Ask a question about your document")

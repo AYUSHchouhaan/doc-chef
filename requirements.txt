@@ -1,6 +1,10 @@
 streamlit
 langchain
 langchain-community
+langchain-openai
+langchain-text-splitters
+greenlet==3.2.4
 pypdf
 python-docx
 docx2txt
+python-dotenv

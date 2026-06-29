@@ -1,4 +1,4 @@
-from langchain_community.vectorstores import Chroma
+from langchain_core.vectorstores import InMemoryVectorStore
 
 from utils.embeddings import get_embedding_model
 
@@ -6,12 +6,10 @@ from utils.embeddings import get_embedding_model
 def create_vector_store(chunks):
 
     embedding_model = get_embedding_model()
-    vector_store = Chroma.from_texts(
+    vector_store = InMemoryVectorStore.from_texts(
 
         texts=chunks,
 
-        embedding=embedding_model,
-
-        persist_directory="vector_store"
+        embedding=embedding_model
     )
     return vector_store
